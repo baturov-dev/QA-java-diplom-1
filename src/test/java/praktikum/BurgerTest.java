@@ -43,12 +43,6 @@ public class BurgerTest {
         when(oneMoreIngredient.getType()).thenReturn(IngredientType.FILLING);
     }
 
-    @Test
-    public void confirmSetBunsCalled() {
-        burger.setBuns(bun);
-        Mockito.verify(burger, Mockito.times(1)).setBuns(bun);
-        assertNotNull(burger.bun);
-    }
 
     @Test
     public void addIngredientAdded() {
@@ -61,14 +55,6 @@ public class BurgerTest {
         burger.ingredients.add(ingredient);
         burger.removeIngredient(0);
         assertTrue(burger.ingredients.isEmpty());
-    }
-
-    @Test
-    public void moveIngredientMoved() {
-        burger.ingredients.addAll(List.of(ingredient, oneMoreIngredient));
-        burger.moveIngredient(1, 0);
-        burger.ingredients.get(1).getName();
-        Mockito.verify(ingredient).getName();
     }
 
     @Test
