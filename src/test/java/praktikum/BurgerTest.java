@@ -58,6 +58,14 @@ public class BurgerTest {
     }
 
     @Test
+    public void moveIngredientMoved() {
+        burger.ingredients.addAll(List.of(ingredient, oneMoreIngredient));
+        burger.moveIngredient(0, 1);
+        Ingredient actual = burger.ingredients.get(1);
+        assertEquals("Incorrect movement of an ingredient", ingredient, actual);
+    }
+
+    @Test
     public void getReturnedPriceOfTheBurger() {
         burger.setBuns(bun);
         burger.ingredients.addAll(List.of(ingredient, oneMoreIngredient));
